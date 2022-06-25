@@ -1,0 +1,10 @@
+:root {
+	--black: #0f0f0f;
+	--white: white;
+	--red: hsl(0 100% 50%);
+	--green: hsl(120 100% 30%);
+	--shadow: #ff00004d; /* 0 0 7 8 */
+	--gray: #534a4c; /* 0 0 7 8 */
+	--fullBlack: #000; /* 0 0 7 8 */
+	--mediumBlack: #151515; /* 0 0 7 8 */
+}
