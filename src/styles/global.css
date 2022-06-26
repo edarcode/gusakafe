@@ -1,11 +1,18 @@
 body {
-	background-color: var(--black);
-	color: var(--white);
 	font-family: "Source Sans Pro", sans-serif;
+	background-image: url("/ingredientes2.jpg");
+	background-size: cover;
+	background-position: center center;
+	color: var(--white);
 }
 
 @media screen and (min-width: 1400px) {
 	body {
-		font-size: 2.4rem;
+		font-size: 2rem;
+	}
+}
+@media screen and (min-width: 768px) {
+	body {
+		background-image: url("/sopa2.jpg");
 	}
 }

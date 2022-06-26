@@ -1,0 +1,10 @@
+.header {
+	background-color: var(--yellow);
+	padding: 15px;
+	font-weight: bold;
+}
+.header__nav {
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+}
