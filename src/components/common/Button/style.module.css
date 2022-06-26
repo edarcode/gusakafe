@@ -1,0 +1,25 @@
+.btn {
+	background-color: var(--red);
+	border-radius: 25px;
+	padding: 0.5rem 1.8rem;
+	font-weight: bold;
+	border: none;
+	cursor: pointer;
+	transition: transform 0.3s ease;
+}
+.btn:focus {
+	outline: 3px solid var(--yellow);
+}
+.btn:hover {
+	transform: scale(1.05);
+}
+
+.btn--ghost {
+	background-color: transparent;
+	border: 2px solid var(--white);
+}
+
+.btn--ghost:hover {
+	background-color: var(--white);
+	color: var(--red);
+}
