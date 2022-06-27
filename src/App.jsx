@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { dashboard, home } from "./constants/paths";
+import { useTables } from "./hooks/useTables";
 import Admin from "./views/Admin/Admin";
 import Client from "./views/Client/Client";
 import Dashboard from "./views/Dashboard/Dashboard";
@@ -8,6 +9,8 @@ import Home from "./views/Home/Home";
 import NotFound from "./views/NotFound/NotFound";
 
 function App() {
+	const { tables } = useTables();
+	console.log(tables);
 	return (
 		<div className="App">
 			<Routes>
