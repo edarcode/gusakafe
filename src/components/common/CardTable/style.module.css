@@ -1,0 +1,12 @@
+.table {
+	background-color: var(--red);
+	width: 200px;
+	padding: 5px;
+	border-radius: 5px;
+	display: grid;
+	place-items: center;
+}
+.table__title {
+	text-transform: capitalize;
+	font-size: 1.8rem;
+}
