@@ -8,7 +8,7 @@ import css from "./style.module.css";
 const socket = connect("http://localhost:3001");
 
 export default function Home() {
-	const { tables } = useContext(TableContext);
+	const { tables, setTables } = useContext(TableContext);
 	const [isOccupying, setIsOccupying] = useState({ id: "", flag: false });
 	const [code, setCode] = useState("");
 
@@ -21,7 +21,7 @@ export default function Home() {
 		if (tables && code) {
 			const table = tables.tables.find(item => item.id === isOccupying.id);
 			if (table && table.code === code) {
-				socket.emit("occupyTable", { id: table.id, code });
+				socket.emit("occupyingTable", { id: table.id, code });
 				setIsOccupying({ id: "", flag: false });
 				setCode("");
 			}
@@ -29,8 +29,8 @@ export default function Home() {
 	};
 
 	useEffect(() => {
-		socket.on("occupyTable", data => console.log(data, "useEffect"));
-	}, []);
+		socket.on("busyTable", data => setTables(data));
+	}, [setTables]);
 
 	return (
 		<main className={css.home}>

@@ -10,8 +10,8 @@ import Home from "./views/Home/Home";
 import NotFound from "./views/NotFound/NotFound";
 
 function App() {
-	const { tables } = useTables();
-	const tableContext = { tables };
+	const { tables, setTables } = useTables();
+	const tableContext = { tables, setTables };
 	return (
 		<div className="App">
 			<TableContext.Provider value={tableContext}>
