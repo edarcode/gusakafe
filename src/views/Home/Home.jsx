@@ -39,7 +39,10 @@ export default function Home() {
 					<CardTable
 						key={item.id}
 						{...item}
-						onClick={() => setIsOccupying({ id: item.id, flag: true })}
+						onClick={() =>
+							item.state !== "busy" &&
+							setIsOccupying({ id: item.id, flag: true })
+						}
 					/>
 				))}
 			{isOccupying.flag && (
@@ -48,6 +51,7 @@ export default function Home() {
 					onChange={handleOnChangeCode}
 					value={code}
 					onClick={handleOnClickOccupyTable}
+					onClose={() => setIsOccupying({ id: "", flag: false })}
 				/>
 			)}
 		</main>

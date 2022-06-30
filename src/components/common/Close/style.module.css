@@ -1,0 +1,5 @@
+.close {
+	color: var(--red);
+	width: 30px;
+	height: 30px;
+}
