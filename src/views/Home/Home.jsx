@@ -1,13 +1,16 @@
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { connect } from "socket.io-client";
 import CardTable from "../../components/common/CardTable/CardTable";
 import CaptureString from "../../components/popups/CaptureString/CaptureString";
+import { product } from "../../constants/paths";
 import { TableContext } from "../../contexts/TableContext";
 import css from "./style.module.css";
 
 const socket = connect("http://localhost:3001");
 
 export default function Home() {
+	const navigateToProduct = useNavigate();
 	const { tables, setTables } = useContext(TableContext);
 	const [isOccupying, setIsOccupying] = useState({ id: "", flag: false });
 	const [code, setCode] = useState("");
@@ -22,8 +25,7 @@ export default function Home() {
 			const table = tables.tables.find(item => item.id === isOccupying.id);
 			if (table && table.code === code) {
 				socket.emit("occupyingTable", { id: table.id, code });
-				setIsOccupying({ id: "", flag: false });
-				setCode("");
+				navigateToProduct(product);
 			}
 		}
 	};
