@@ -5,20 +5,20 @@ import css from "./style.module.css";
 export default function CaptureString({
 	placeholder,
 	onChange,
-	onClick,
+	onSubmit,
 	onClose,
 	value
 }) {
 	return (
-		<div className={css.alert}>
+		<form className={css.alert} onSubmit={onSubmit}>
 			<input
 				className={css.alert__input}
 				placeholder={placeholder}
 				onChange={onChange}
 				value={value}
 			/>
-			<Button onClick={onClick}>Enviar</Button>
+			<Button>Enviar</Button>
 			<Close className={css.alert__close} onClick={onClose} />
-		</div>
+		</form>
 	);
 }

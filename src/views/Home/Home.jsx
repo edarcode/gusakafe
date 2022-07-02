@@ -20,7 +20,8 @@ export default function Home() {
 		setCode(code);
 	};
 
-	const handleOnClickOccupyTable = () => {
+	const handleOnSubmitOccupyTable = e => {
+		e.preventDefault();
 		if (tables && code) {
 			const table = tables.tables.find(item => item.id === isOccupying.id);
 			if (table && table.code === code) {
@@ -52,7 +53,7 @@ export default function Home() {
 					placeholder="Ingrese el codigo"
 					onChange={handleOnChangeCode}
 					value={code}
-					onClick={handleOnClickOccupyTable}
+					onSubmit={handleOnSubmitOccupyTable}
 					onClose={() => setIsOccupying({ id: "", flag: false })}
 				/>
 			)}
