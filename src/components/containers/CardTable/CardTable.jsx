@@ -1,4 +1,4 @@
-import Button from "../Button/Button";
+import Button from "../../common/Button/Button";
 import css from "./style.module.css";
 
 export default function CardTable({ name, state, onClick }) {

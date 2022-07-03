@@ -11,8 +11,8 @@ import NotFound from "./views/NotFound/NotFound";
 import Product from "./views/Product/Product";
 
 function App() {
-	const { tables, setTables } = useTables();
-	const tableContext = { tables, setTables };
+	const { tables, reStart } = useTables();
+	const tableContext = { tables, reStart };
 	return (
 		<div className="App">
 			<TableContext.Provider value={tableContext}>

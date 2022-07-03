@@ -11,5 +11,8 @@ export const useTables = () => {
 			.then(({ data }) => setTables(data))
 			.catch(err => console.log(err));
 	}, []);
-	return { tables, setTables };
+
+	const reStart = newTables => setTables(newTables);
+
+	return { tables, reStart };
 };

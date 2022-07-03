@@ -1,0 +1,21 @@
+.products {
+	display: grid;
+	gap: 15px;
+	place-items: center;
+	padding: 15px;
+}
+@media screen and (min-width: 768px) {
+	.products {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media screen and (min-width: 1280px) {
+	.products {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+@media screen and (min-width: 1920px) {
+	.products {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+	}
+}

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { connect } from "socket.io-client";
-import CardTable from "../../components/common/CardTable/CardTable";
+import CardTable from "../../components/containers/CardTable/CardTable";
 import CaptureString from "../../components/popups/CaptureString/CaptureString";
 import { product } from "../../constants/paths";
 import { TableContext } from "../../contexts/TableContext";
@@ -11,7 +11,7 @@ const socket = connect("http://localhost:3001");
 
 export default function Home() {
 	const navigateToProduct = useNavigate();
-	const { tables, setTables } = useContext(TableContext);
+	const { tables, reStart } = useContext(TableContext);
 	const [isOccupying, setIsOccupying] = useState({ id: "", flag: false });
 	const [code, setCode] = useState("");
 
@@ -32,8 +32,8 @@ export default function Home() {
 	};
 
 	useEffect(() => {
-		socket.on("busyTable", data => setTables(data));
-	}, [setTables]);
+		socket.on("busyTable", data => reStart(data));
+	}, [reStart]);
 
 	return (
 		<main className={css.home}>
