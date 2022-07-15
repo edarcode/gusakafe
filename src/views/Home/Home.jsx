@@ -15,13 +15,7 @@ export default function Home() {
 	const [isOccupying, setIsOccupying] = useState({ id: "", flag: false });
 	const [code, setCode] = useState("");
 
-	const handleOnChangeCode = e => {
-		const code = e.target.value;
-		setCode(code);
-	};
-
-	const handleOnSubmitOccupyTable = e => {
-		e.preventDefault();
+	useEffect(() => {
 		if (tables && code) {
 			const table = tables.tables.find(item => item.id === isOccupying.id);
 			if (table && table.code === code) {
@@ -29,11 +23,15 @@ export default function Home() {
 				navigateToProduct(product);
 			}
 		}
-	};
+	}, [code, isOccupying, navigateToProduct, tables]);
 
 	useEffect(() => {
 		socket.on("busyTable", data => reStart(data));
 	}, [reStart]);
+
+	const handleClose = () => {
+		setIsOccupying(isOccupying => ({ ...isOccupying, flag: false }));
+	};
 
 	return (
 		<main className={css.home}>
@@ -51,10 +49,8 @@ export default function Home() {
 			{isOccupying.flag && (
 				<CaptureString
 					placeholder="Ingrese el codigo"
-					onChange={handleOnChangeCode}
-					value={code}
-					onSubmit={handleOnSubmitOccupyTable}
-					onClose={() => setIsOccupying({ id: "", flag: false })}
+					setState={setCode}
+					handleClose={handleClose}
 				/>
 			)}
 		</main>
