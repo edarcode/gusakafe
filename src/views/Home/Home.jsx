@@ -7,7 +7,7 @@ import { product } from "../../constants/paths";
 import { TableContext } from "../../contexts/TableContext";
 import css from "./style.module.css";
 
-const socket = connect("http://localhost:3001");
+const socket = connect(import.meta.env.VITE_APP_API);
 
 export default function Home() {
 	const navigateToProduct = useNavigate();
